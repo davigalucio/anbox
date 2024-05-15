@@ -59,7 +59,7 @@ chmod 777 /opt/INSTALL-PlayStore.sh
 ###################################################
 # Baixar e Instalar o WhatsApp                    #
 ###################################################
-cat << EOF >> /opt/Whatsapp.sh
+cat << 'EOF' >> /opt/INSTALL-WhatsApp.sh
 wget -P /opt/ https://files01.tchspt.com/down/WhatsApp-2.24.9.79.apk
 adb install /opt/WhatsApp*.apk
 EOF
