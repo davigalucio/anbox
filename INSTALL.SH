@@ -65,4 +65,6 @@ adb install /opt/WhatsApp*.apk
 EOF
 # ------------------------------------------------#
 # Para iniciar o WhatsApp
-#/usr/bin/anbox launch --action=android.intent.action.MAIN --package=com.whatsapp --component=com.whatsapp.Main 
+#/usr/bin/anbox launch --action=android.intent.action.MAIN --package=com.whatsapp --component=com.whatsapp.Main
+
+sudo reboot
