@@ -1,7 +1,9 @@
 # Instalação no Debian 11 (Apenas)
 
 apt install -y git
+
 git clone https://github.com/davigalucio/anbox.git
+
 sh anbox/INSTALL.SH
 
 # Instalação do PlayStore
