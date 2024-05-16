@@ -5,9 +5,9 @@ sed -i 's|non-free-firmware||' debian/update-upgrade.sh
 
 sh debian/update-upgrade.sh
 
-apt install -y build-essential lsb-release module-assistant ca-certificates software-properties-common aptitude sudo wget git gnupg curl cmake g++ gcc make automake autoconf net-tools plocate lzip tar unzip squashfs-tools
+apt install -y build-essential lsb-release module-assistant ca-certificates software-properties-common aptitude sudo wget git gnupg curl cmake g++ gcc make automake autoconf net-tools plocate lzip tar unzip
 
-sudo apt install -y linux-headers-amd64 dkms debhelper libelf-dev mokutil
+sudo apt install -y linux-headers-amd64 dkms debhelper libelf-dev mokutil squashfs-tools
 #sudo apt install -y linux-headers-$(uname -r)
 apt install -y --no-install-recommends lxde-core
 
