@@ -1,30 +1,24 @@
 apt install git -y
 git clone https://github.com/davigalucio/debian.git
-
 sed -i 's|non-free-firmware||' debian/update-upgrade.sh
-
 sh debian/update-upgrade.sh
 
-apt install -y build-essential lsb-release module-assistant ca-certificates software-properties-common aptitude sudo wget git gnupg curl cmake g++ gcc make automake autoconf net-tools plocate lzip tar unzip
-sudo systemctl daemon-reload
-
-sudo apt install -y linux-headers-$(uname -r) dkms debhelper libelf-dev mokutil squashfs-tools
-sudo systemctl daemon-reload
+apt install -y build-essential lsb-release module-assistant software-properties-common linux-headers-amd64
+apt install -y aptitude sudo wget git curl cmake cmake-extras automake net-tools plocate lzip unzip
 
 apt install -y lxde-core
-sudo systemctl daemon-reload
-
 apt install -y xrdp
+
 sudo systemctl daemon-reload
 
-apt install -y anbox android-tools-adb android-tools-fastboot
-sudo systemctl daemon-reload
+apt install -y anbox android-tools-adb android-tools-fastboot dkms debhelper mokutil squashfs-tools
 
 git clone https://github.com/anbox/anbox-modules.git
 cd anbox-modules
 sudo chmod +x INSTALL.sh
 ./INSTALL.sh
 cd ..
+
 sudo systemctl daemon-reload
 
 #ls -1 /dev/{ashmem,binder}
@@ -43,11 +37,12 @@ cp /snap/anbox/current/android.img /var/lib/anbox/android.img
 sudo systemctl enable --now systemd-networkd snap.anbox.container-manager.service
 sudo systemctl start systemd-networkd.service snap.anbox.container-manager.service
 
-sudo snap restart anbox.container-manager
-sudo systemctl restart anbox-container-manager.service
+#sudo snap restart anbox.container-manager
+#sudo systemctl restart anbox-container-manager.service
+
 sudo systemctl daemon-reload
 
-snap start anbox
+sudo snap start anbox
 
 
 ###################################################
@@ -68,10 +63,10 @@ chmod 777 /opt/INSTALL-PlayStore.sh
 ###################################################
 # Baixar e Instalar o WhatsApp                    #
 ###################################################
-cat << 'EOF' >> /opt/INSTALL-WhatsApp.sh
-wget -P /opt/ https://files03.tchspt.com/down/WhatsApp-2.24.10.74.apk
-adb install /opt/WhatsApp*.apk
-EOF
+#cat << 'EOF' >> /opt/INSTALL-WhatsApp.sh
+#wget -P /opt/ https://files03.tchspt.com/down/WhatsApp-2.24.10.74.apk
+#adb install /opt/WhatsApp*.apk
+#EOF
 # ------------------------------------------------#
 # Para iniciar o WhatsApp
 #/usr/bin/anbox launch --action=android.intent.action.MAIN --package=com.whatsapp --component=com.whatsapp.Main
